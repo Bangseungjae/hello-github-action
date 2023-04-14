@@ -12,3 +12,4 @@ jobs:
           distribution: 'temurin'
       - run: chmod +x gradlew
       - run: ./gradlew clean build test
+      - run: docker ps
