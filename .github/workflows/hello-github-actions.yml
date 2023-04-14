@@ -11,7 +11,7 @@ jobs:
       - uses: actions/setup-java@v3
         with:
           java:
-            java-version: 11
+            java-version: '11'
             distribution: 'temurin'
       - run: chmod -x gradlew
       - run: ./gradlew clean build test
