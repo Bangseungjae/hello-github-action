@@ -17,11 +17,20 @@ jobs:
         with:
           java-version: '11'
           distribution: 'temurin'
+
+      - name: yml
+        uses: actions/setup-java@v3
+        run: |
+          mkdir ./src/main/resources
+          touch ./src/main/resources/application.yml
+          echo ${{ secrets.YML_FILE }} > ./src/main/resources/application.yml
+      - uses: actions/upload-artifact@v3
+        with:
+          name: application.yml
+          path: ./src/main/resources/application.yml
+
       - name: Build with Gradle
         uses: gradle/gradle-build-action@67421db6bd0bf253fb4bd25b31ebb98943c375e1
-        run: |
-          mkdir src/main/resources
-          echo ${{ secrets.YML_FILE }} >> src/main/application.yml
         with:
           arguments: clean build bootJar
       - name: Get current time
