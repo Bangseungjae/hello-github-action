@@ -10,7 +10,7 @@ jobs:
 
     runs-on: ubuntu-latest
     env:
-      server.port: {{ secrets.SERVER_PORT }}
+      SERVER_PORT: {{ secrets.SERVER_PORT }}
 
     steps:
       - uses: actions/checkout@v3
