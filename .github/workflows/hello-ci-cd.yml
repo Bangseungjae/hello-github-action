@@ -18,8 +18,7 @@ jobs:
           java-version: '11'
           distribution: 'temurin'
 
-      - name: yml
-        uses: actions/setup-java@v3
+      - uses: actions/checkout@v2
         run: |
           mkdir ./src/main/resources
           touch ./src/main/resources/application.yml
