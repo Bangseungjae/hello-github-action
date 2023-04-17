@@ -9,8 +9,6 @@ jobs:
   build:
 
     runs-on: ubuntu-latest
-    env:
-      SERVER_PORT: ${{ secrets.SERVER_PORT }}
 
     steps:
       - uses: actions/checkout@v3
@@ -21,6 +19,9 @@ jobs:
           distribution: 'temurin'
       - name: Build with Gradle
         uses: gradle/gradle-build-action@67421db6bd0bf253fb4bd25b31ebb98943c375e1
+        run: |
+          mkdir src/main/resources
+          echo ${{ secrets.YML_FILE }} >> src/main/application.yml
         with:
           arguments: clean build bootJar
       - name: Get current time
