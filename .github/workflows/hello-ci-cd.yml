@@ -1,6 +1,8 @@
 name: Java CI with Gradle
-on:
-  workflow_dispatch:
+#on:
+#  workflow_dispatch:
+on: [push]
+
 permissions:
   contents: read
 jobs:

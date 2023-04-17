@@ -13,4 +13,9 @@ public class HelloController {
     public ResponseEntity<String> hello() {
         return ResponseEntity.of(Optional.of("Hello, Github Actions 두번 쨰"));
     }
+
+    @GetMapping("")
+    public ResponseEntity<String> home() {
+        return ResponseEntity.of(Optional.of("Hello, Github Actions 세번 쨰"));
+    }
 }
